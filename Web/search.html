@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> 搜尋 </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+	</style>
+	</head>
+
+<body>
+	<div class="w3-bar w3-top w3-teal w3-large" style="z-index:4">
+		<a href="http://140.116.82.135:1001/list" class="w3-bar-item w3-right">DEH</a>
+	</div>
+
+	<div class="w3-main" style="margin-top:43px;">
+		<header class="w3-container w3-teal " style="z-index:1">
+    <h1>Search the picture!</h1>
+	</header>
+
+    <ul>
+
+
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 0px dotted black;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+
+    <form action="/search" method="post">
+	  <li>
+    <input  class="search-bar" type="text" name="Search"  id="Search"  placeholder="請輸入文字">
+    <div class="tooltip"><img src="http://140.116.82.135:8000/photo_server/suggestion.png" width="15">
+      <span class="tooltiptext">請輸入欲搜尋之特徵詞彙</span>
+    </div>
+  </li>
+
+    <br>
+  	<input type="checkbox" id="title" name="title" value="title" checked>
+  	<label for="title"> 標題</label>
+  	<input type="checkbox" id="date" name="date" value="date">
+  	<label for="date"> 日期</label>
+  	<input type="checkbox" id="keyword" name="keyword" value="keyword">
+  	<label for="keyword"> 關鍵字</label>
+  	<input type="checkbox" id="description" name="description" value="description">
+  	<label for="description"> 描述</label>
+  	<input type="checkbox" id="reference" name="reference" value="reference">
+  	<label for="reference"> 參考資料</label>
+  	<input type="checkbox" id="contributor" name="contributor" value="contributor">
+  	<label for="contributor"> 景點製作貢獻者</label>
+
+
+	<br><br>
+  <li>
+    <label>內容標籤(label):
+    <input list="label" name="label"></label>
+    <datalist id="label">
+		{labelopt}
+    </datalist>
+    <div class="tooltip"><img src="http://140.116.82.135:8000/photo_server/suggestion.png" width="15">
+      <span class="tooltiptext">請以英文輸入內容標籤（label)並以空格分開 ex:Sky Building </span>
+    </div>
+  </li>
+    <br>
+    <li>
+      <label>地景名稱(landmark):
+      <input list="landmark" name="landmark"></label>
+      <datalist id="landmark">
+        {landmarkopt}
+      </datalist>
+    <div class="tooltip"><img src="http://140.116.82.135:8000/photo_server/suggestion.png" width="15">
+      <span class="tooltiptext">請輸入地景名稱（landmark) ex:Chikan Tower</span>
+    </div>
+  </li>
+
+
+
+	<li>
+    <p>範疇:
+    <select name="category">
+    <option value="All">All</option>
+    <option value="古蹟">古蹟</option>
+    <option value="歷史建築">歷史建築</option>
+    <option value="紀念建築">紀念建築</option>
+    <option value="考古遺址">考古遺址</option>
+    <option value="史蹟">史蹟</option>
+    <option value="文化景觀">文化景觀</option>
+    <option value="自然景觀">自然景觀</option>
+    <option value="傳統表演藝術">傳統表演藝術</option>
+    <option value="傳統工藝">傳統工藝</option>
+    <option value="口述傳統">口述傳統</option>
+    <option value="民俗">民俗</option>
+    <option value="民俗及有關文物">民俗及有關文物</option>
+    <option value="傳統知識與實踐">傳統知識與實踐</option>
+    <option value="一般景觀含建築:人工地景與自然地景">一般景觀含建築:人工地景與自然地景</option>
+    <option value="植物">植物</option>
+    <option value="動物">動物</option>
+    <option value="生物">生物</option>
+    <option value="食衣住行育樂">食衣住行育樂</option>
+    <option value="其他">其他</option>
+    </select>
+    </p>
+    </li>
+
+    <li>
+    <p>喜好程度:
+    <select name="priority">
+    <option value=0>1★~5★</option>
+    <option value=1>1★</option>
+    <option value=2>2★</option>
+    <option value=3>3★</option>
+    <option value=4>4★</option>
+    <option value=5>5★</option>
+    </select>
+    </p>
+    </li>
+
+	
+	
+	<div class="w3-container">
+    <input class="w3-button w3-dark-grey" type="submit" id="submitDetails" name="submitDetails" value="Search"/>
+	</div>
+	</form>
+
+    <br>
+    </ul>
+    
+
+		<div class="w3-container">
+		<br>
+		<h5 class="w3-bottombar w3-border-red">已選擇的照片</h5>
+		
+		<table>
+			<tr>
+				<td><img src={choosed_pic_1} width="200"></td>
+				<td><img src={choosed_pic_2} width="200"></td>
+				<td><img src={choosed_pic_3} width="200"></td>
+				<td><img src={choosed_pic_4} width="200"></td>
+				<td><img src={choosed_pic_5} width="200"></td>
+			</tr>
+			<tr>
+				<td>
+					<form action="/search" method="post">
+						<input type="hidden" name="pic" value="1"/>
+						{del1}
+						<!--<input type="submit" name="del" value={del1}/>--->
+					</form>
+				</td>
+				<td>
+					<form action="/search" method="post">
+						<input type="hidden" name="pic" value="2"/>
+						{del2}
+					</form>
+				</td>
+				<td>
+					<form action="/search" method="post">
+						<input type="hidden" name="pic" value="3"/>
+						{del3}
+					</form>
+				</td>
+				<td>
+					<form action="/search" method="post">
+						<input type="hidden" name="pic" value="4"/>
+						{del4}
+					</form>
+				</td>
+				<td>
+					<form action="/search" method="post">
+						<input type="hidden" name="pic" value="5"/>
+						{del5}
+					</form>
+				</td>
+				<!--<td>
+					<form action="/authoring" method="get">
+						<input type="submit" name="goAuthoring" value="確認圖片"/>
+					</form>
+				</td>-->
+			</tr>
+		</table>
+		</div>
+	
+	<br>
+	<form action="/authoring" method="get">
+		<div class="w3-container">
+		<input class="w3-button w3-dark-grey" type="submit" name="goAuthoring" value="確認圖片"/>
+		</div>
+	</form>
+	
+	<div class="w3-container w3-twothird">
+		<h5 class="w3-bottombar w3-border-green">Result: (點擊圖片查看更多)</h5>
+    <table> 
+	  <tr>
+      <td><a href="http://140.116.82.135:1001/search/1">
+        <img src={pic_1} width="200">
+      </a></td>
+    　<td>{title_1}</td>
+    　</tr>
+    </table>
+    <p>{line_1}</p>
+
+    <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/2">
+        <img src={pic_2} width="200">
+      </a></td>
+    　<td>{title_2}</td>
+    </tr></table>
+    <p>{line_2}</p>
+  
+  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/3">
+        <img src={pic_3} width="200">
+      </a></td>
+    　<td>{title_3}</td>
+  </tr></table>
+  <p>{line_3}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/4">
+        <img src={pic_4} width="200">
+      </a></td>
+    　<td>{title_4}</td>
+    </tr></table>
+    <p>{line_4}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/5">
+        <img src={pic_5} width="200">
+      </a></td>
+    　<td>{title_5}</td>
+    </tr></table>
+    <p>{line_5}</p>
+
+	 <table> <tr>
+      <td><a href="http://140.116.82.135:1001/search/6">
+        <img src={pic_6} width="200">
+      </a></td>
+    　<td>{title_6}</td>
+   </tr></table>
+   <p>{line_6}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/7">
+        <img src={pic_7} width="200">
+      </a></td>
+    　<td>{title_7}</td>
+    </tr></table>
+    <p>{line_7}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/8">
+        <img src={pic_8} width="200">
+      </a></td>
+    　<td>{title_8}</td>
+    </tr></table>
+    <p>{line_8}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/9">
+        <img src={pic_9} width="200">
+      </a></td>
+    　<td>{title_9}</td>
+    </tr></table>
+    <p>{line_9}</p>
+
+	 <table> <tr>
+      <td><a href="http://140.116.82.135:1001/search/10">
+        <img src={pic_10} width="200">
+      </a></td>
+    　<td>{title_10}</td>
+   </tr></table>
+   <p>{line_10}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/11">
+        <img src={pic_11} width="200">
+      </a></td>
+    　<td>{title_11}</td>
+    </tr></table>
+    <p>{line_11}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/12">
+        <img src={pic_12} width="200">
+      </a></td>
+    　<td>{title_12}</td>
+    </tr></table>
+    <p>{line_12}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/13">
+        <img src={pic_13} width="200">
+      </a></td>
+    　<td>{title_13}</td>
+    </tr></table>
+    <p>{line_13}</p>
+
+	 <table> <tr>
+      <td><a href="http://140.116.82.135:1001/search/14">
+        <img src={pic_14} width="200">
+      </a></td>
+    　<td>{title_14}</td>
+   </tr></table>
+   <p>{line_14}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/15">
+        <img src={pic_15} width="200">
+      </a></td>
+    　<td>{title_15}</td>
+    </tr></table>
+    <p>{line_15}</p>
+
+	 <table> <tr>
+      <td><a href="http://140.116.82.135:1001/search/16">
+        <img src={pic_16} width="200">
+      </a></td>
+    　<td>{title_16}</td>
+   </tr></table>
+   <p>{line_16}</p>
+
+	  <table><tr>
+        <td><a href="http://140.116.82.135:1001/search/17">
+          <img src={pic_17} width="200">
+        </a></td>
+      　<td>{title_17}</td>
+    </tr></table>
+    <p>{line_17}</p>
+
+	 <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/18">
+        <img src={pic_18} width="200">
+      </a></td>
+    　<td>{title_18}</td>
+   </tr></table>
+   <p>{line_18}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/19">
+        <img src={pic_19} width="200">
+      </a></td>
+    　<td>{title_19}</td>
+    </tr></table>
+    <p>{line_19}</p>
+
+	  <table><tr>
+      <td><a href="http://140.116.82.135:1001/search/20">
+        <img src={pic_20} width="200">
+      </a></td>
+    　<td>{title_20}</td>
+    </tr></table>
+    <p>{line_20}</p>
+	</div>
+	<form action="/search" method="post">
+		<div class="w3-container">
+		<input class="w3-button w3-dark-grey" type="submit" id="previouspg" name="previouspg" value="上一頁"/>
+		<input class="w3-button w3-dark-grey" type="submit" id="nextpg" name="nextpg" value="下一頁"/>
+		</div>
+	</form>
+</div>
+</body>
+</html>

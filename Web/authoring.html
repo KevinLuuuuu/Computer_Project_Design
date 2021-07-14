@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title> 創作 </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+	</style>
+	</head>
+
+	<script>
+		function jump(){
+			getValue();
+			window.location.href = 'http://140.116.82.135:1001/search';
+		}
+		function getValue(){
+			localStorage.setItem("title_ls",document.getElementById("title").value);
+			localStorage.setItem("description_ls",document.getElementById("description").value);
+			localStorage.setItem("contributor_ls",document.getElementById("contributor").value);
+			localStorage.setItem("category_ls",document.getElementById("category").value);
+		}
+		function setValue(){
+			var titleValue = localStorage.title_ls;
+			var descriptionValue = localStorage.description_ls;
+			var categoryValue = localStorage.category_ls;
+			var contributorValue = localStorage.contributor_ls;
+			if(titleValue != undefined)
+				document.getElementById("title").value = titleValue;
+			else
+				document.getElementById("title").value = "";
+			if(descriptionValue != undefined)
+				document.getElementById("description").value = descriptionValue;
+			else
+				document.getElementById("description").value = "";
+			if(categoryValue != undefined)
+				document.getElementById("category").value = categoryValue;
+			else
+				document.getElementById("category").value = "All";
+			if(contributorValue != undefined)
+				document.getElementById("contributor").value = contributorValue;
+			else
+				document.getElementById("contributor").value = "";
+		}
+		function clearLocal(){
+			localStorage.clear();
+		}
+		function check(){
+			clearLocal();
+			reload();
+		}
+	</script>
+
+	<body onload="setValue()">
+		<div class="w3-bar w3-top w3-teal w3-large" style="z-index:4">
+		<a href="http://140.116.82.135:1001/list" class="w3-bar-item w3-right" onclick = "clearLocal()">DEH</a>
+	</div>
+
+	<div class="w3-main" style="margin-top:43px;">
+			<header class="w3-container w3-teal " style="z-index:1">
+				<h1>創作!</h1>
+			</header>
+
+		<ul>
+
+		<form action="/authoring" method="post">
+		
+			<li>
+				<label>標題:</label><br>
+				<input type="text" id="title" name="title" value="" required/><br>
+			</li>
+			<br>
+			<li>
+				<label>描述:</label><br>
+				<input type="text" id="description" name="description" value="" required/><br>
+			</li>
+
+			<li>
+				<p>範疇:
+					<br>
+					<select name="category" id="category">
+					<option value="All">All</option>
+					<option value="古蹟">古蹟</option>
+					<option value="歷史建築">歷史建築</option>
+					<option value="紀念建築">紀念建築</option>
+					<option value="考古遺址">考古遺址</option>
+					<option value="史蹟">史蹟</option>
+					<option value="文化景觀">文化景觀</option>
+					<option value="自然景觀">自然景觀</option>
+					<option value="傳統表演藝術">傳統表演藝術</option>
+					<option value="傳統工藝">傳統工藝</option>
+					<option value="口述傳統">口述傳統</option>
+					<option value="民俗">民俗</option>
+					<option value="民俗及有關文物">民俗及有關文物</option>
+					<option value="傳統知識與實踐">傳統知識與實踐</option>
+					<option value="一般景觀含建築:人工地景與自然地景">一般景觀含建築:人工地景與自然地景</option>
+					<option value="植物">植物</option>
+					<option value="動物">動物</option>
+					<option value="生物">生物</option>
+					<option value="食衣住行育樂">食衣住行育樂</option>
+					<option value="其他">其他</option>
+					</select>
+				</p>
+			</li>
+			
+			<li>
+				<label>景點製作貢獻者:</label><br>
+				<input type="text" id="contributor" name="contributor" value="" required/><br>
+			</li>
+			<br>
+			<div class="w3-container">
+				<input class="w3-button w3-dark-grey" type="submit" onclick = "check()" id="submitDetails" name="submitDetails" value="確定"/>
+				<input class="w3-button w3-dark-grey" type="button" onclick = "jump()" value="前往Search" id="gotoSearch" name="gotoSearch">
+				
+			</div>
+		</form>
+		<!--
+		<form action="/search" method="post">
+		
+			<li>
+				<input type="hidden" id="title" name="title" value="{title_v}" required/><br>
+			</li>
+			<input class="w3-button w3-dark-grey" type="submit" value="前往Search" id="gotoSearch" name="gotoSearch"></a>		
+		</form>
+		-->
+		
+		<br>
+		</ul>
+		<br><br>
+		
+		<div class="w3-container w3-third">
+		<h5 class="w3-bottombar w3-border-green">已選擇的照片</h5>
+		<table> 
+		  <tr>
+		  <td>
+			<img src={pic_1} width="200">
+			</td>
+		　</tr>
+		</table>
+		<p>{line_1}</p>
+
+		<table><tr>
+		  <td>
+			<img src={pic_2} width="200">
+			</td>
+		</tr></table>
+		<p>{line_2}</p>
+	  
+	  <table><tr>
+		  <td>
+			<img src={pic_3} width="200">
+			</td>
+	  </tr></table>
+	  <p>{line_3}</p>
+
+		  <table><tr>
+		  <td>
+			<img src={pic_4} width="200">
+			</td>
+		</tr></table>
+		<p>{line_4}</p>
+
+		  <table><tr>
+		  <td>
+			<img src={pic_5} width="200">
+			</td>
+		</tr></table>
+		<p>{line_5}</p>
+		</div>
+		</div>
+	</body>
+</html>

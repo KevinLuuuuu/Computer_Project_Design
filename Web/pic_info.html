@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+	</style>
+	</head>
+<body>
+	<div class="w3-bar w3-top w3-teal w3-large" style="z-index:4">
+		<a href="http://140.116.82.135:1001/list" class="w3-bar-item w3-right">DEH</a>
+	</div>
+
+	<div class="w3-main" style="margin-top:43px;">
+	<img src={pic} width="200">
+	<div class="w3-container">
+	<input class="w3-button w3-dark-grey" type="button" value="選擇此照片" onclick="javascript:window.location.href='http://140.116.82.135:1001/search'">
+	</div>
+	
+	<table class="w3-table w3-striped w3-white">
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">內容標籤(Label)</td>
+			<td style="width: 33.3333%;">地景名稱(Landmark)</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">標題 : {title}</td>
+			<td style="width: 33.3333%;">{label0}</td>
+			<td style="width: 33.3333%;">{landmark0}</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">日期 : {date}</td>
+			<td style="width: 33.3333%;">{label1}</td>
+			<td style="width: 33.3333%;">{landmark1}</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">緯度: {latitude}</td>
+			<td style="width: 33.3333%;">{label2}</td>
+			<td style="width: 33.3333%;">{landmark2}</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">經度 : {longitude}</td>
+			<td style="width: 33.3333%;">{label3}</td>
+			<td style="width: 33.3333%;">{landmark3}</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">高度 : {altitude}</td>
+			<td style="width: 33.3333%;">{label4}</td>
+			<td style="width: 33.3333%;">{landmark4}</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">方位 : {orientation}</td>
+			<td style="width: 33.3333%;">{label5}</td>
+			<td style="width: 33.3333%;">{landmark5}</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">方位角 : {azimuth}</td>
+			<td style="width: 33.3333%;">{label6}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">天氣 : {weather}</td>
+			<td style="width: 33.3333%;">{label7}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">地址 : {address}</td>
+			<td style="width: 33.3333%;">{label8}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">年代 : {era}</td>
+			<td style="width: 33.3333%;">{label9}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">範疇 : {category}</td>
+			<td style="width: 33.3333%;">{label10}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">關鍵字 : {keyword}</td>
+			<td style="width: 33.3333%;">{label11}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">描述 : {description}</td>
+			<td style="width: 33.3333%;">{label12}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">參考資料 : {reference}</td>
+			<td style="width: 33.3333%;">{label13}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">同伴 : {companion}</td>
+			<td style="width: 33.3333%;">{label14}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">喜好程度 : {priority}</td>
+			<td style="width: 33.3333%;">{label15}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">貢獻者 : {contributor}</td>
+			<td style="width: 33.3333%;">{label16}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label17}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label18}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label19}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label20}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label21}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label22}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label23}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label24}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label25}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label26}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label27}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label28}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label29}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%;">&nbsp;</td>
+			<td style="width: 33.3333%;">{label30}</td>
+			<td style="width: 33.3333%;">&nbsp;</td>
+		</tr>
+		
+	</table>
+	</div>
+</body>
+</html>
